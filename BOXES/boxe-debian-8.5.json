@@ -1,0 +1,17 @@
+{
+	"builders": [
+	{
+		"type": "virtualbox-ovf",
+		"source_path": "debian.ovf",
+		"ssh_username": "debian",
+		"ssh_password": "debian",
+		"shutdown_command": "echo 'Packer' | shutdown -h now",
+		"communicator": "ssh"
+	}
+	],
+	"provisioners": [{
+		"type": "shell",
+		"script": "base.sh"
+	}],
+	"post-processors": ["vagrant"]
+}
